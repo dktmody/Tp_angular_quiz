@@ -2,103 +2,128 @@
   "questions": [
     {
       "id": 1,
-      "questionLabel": "What is a component in Angular?",
+      "questionLabel": "Combien de joueurs composent une équipe de football sur le terrain ?",
       "categoryId": 1
     },
     {
       "id": 2,
-      "questionLabel": "Explain the purpose of the NgModule in Angular.",
+      "questionLabel": "Quel film a remporté l'Oscar du meilleur film en 2020 ?",
       "categoryId": 2
     },
     {
       "id": 3,
-      "questionLabel": "How do you create a new Angular application?",
+      "questionLabel": "Qui a chanté 'Bohemian Rhapsody' ?",
       "categoryId": 3
     },
     {
       "id": 4,
-      "questionLabel": "What is data binding in Angular, and what are the different types of data binding?",
+      "questionLabel": "Quel est l'ingrédient principal du guacamole ?",
       "categoryId": 4
     },
     {
       "id": 5,
-      "questionLabel": "Explain the difference between {{}} (interpolation) and [property] (property binding) in Angular templates.",
+      "questionLabel": "Quel pays a remporté la Coupe du Monde de football en 2018 ?",
       "categoryId": 1
     },
     {
       "id": 6,
-      "questionLabel": "What is event binding in Angular, and how is it implemented?",
+      "questionLabel": "Qui a réalisé le film 'Inception' ?",
       "categoryId": 2
     },
     {
       "id": 7,
-      "questionLabel": "What is Angular CLI, and how do you use it to generate components?",
+      "questionLabel": "Quel est le vrai nom de la chanteuse Lady Gaga ?",
       "categoryId": 3
     },
     {
       "id": 8,
-      "questionLabel": "What is a directive in Angular? Can you name some built-in directives?",
+      "questionLabel": "Dans quelle ville est né le croissant ?",
       "categoryId": 4
     },
     {
       "id": 9,
-      "questionLabel": "Explain the purpose of the Angular router and how to configure routes in an Angular application.",
+      "questionLabel": "Combien de Grand Chelem Rafael Nadal a-t-il remporté à Roland-Garros ?",
       "categoryId": 1
     },
     {
       "id": 10,
-      "questionLabel": "What is dependency injection in Angular, and why is it important?",
+      "questionLabel": "Quel acteur a joué Jack Dawson dans 'Titanic' ?",
       "categoryId": 2
     },
     {
       "id": 11,
-      "questionLabel": "How do you communicate between parent and child components in Angular?",
+      "questionLabel": "Quel groupe a sorti l'album 'Abbey Road' ?",
       "categoryId": 3
     },
     {
       "id": 12,
-      "questionLabel": "What is a service in Angular, and when should you use it?",
+      "questionLabel": "Quelle épice est la plus chère au monde ?",
       "categoryId": 4
     },
     {
       "id": 13,
-      "questionLabel": "What is the purpose of the ngFor directive in Angular?",
+      "questionLabel": "En quelle année ont eu lieu les premiers Jeux Olympiques modernes ?",
       "categoryId": 1
     },
     {
       "id": 14,
-      "questionLabel": "Explain the concept of modules in Angular and their role in organizing an application.",
+      "questionLabel": "Quel est le film le plus rentable de tous les temps ?",
       "categoryId": 2
     },
     {
       "id": 15,
-      "questionLabel": "What is Angular CLI's ng serve command used for?",
+      "questionLabel": "Qui est surnommé 'The King of Pop' ?",
       "categoryId": 3
     },
     {
       "id": 16,
-      "questionLabel": "What is Angular's two-way data binding, and how does it work?",
+      "questionLabel": "De quel pays provient le sushi ?",
       "categoryId": 4
     },
     {
       "id": 17,
-      "questionLabel": "What is Angular's trackBy function, and why is it used with ngFor?",
+      "questionLabel": "Quel joueur de basketball a marqué 100 points en un seul match NBA ?",
       "categoryId": 1
     },
     {
       "id": 18,
-      "questionLabel": "How can you handle HTTP requests in Angular?",
+      "questionLabel": "Combien d'Oscars le film 'Titanic' a-t-il remporté ?",
       "categoryId": 2
     },
     {
       "id": 19,
-      "questionLabel": "What are Angular pipes, and can you give some examples of built-in pipes?",
+      "questionLabel": "Quel instrument Jimi Hendrix jouait-il principalement ?",
       "categoryId": 3
     },
     {
       "id": 20,
-      "questionLabel": "Explain the concept of lazy loading in Angular and when it's beneficial.",
+      "questionLabel": "Quel est le plat national de l'Espagne ?",
       "categoryId": 4
+    },
+    {
+      "id": 21,
+      "questionLabel": "Quelle est la longueur d'un marathon en kilomètres ?",
+      "categoryId": 1
+    },
+    {
+      "id": 22,
+      "questionLabel": "Qui a joué le rôle de Batman dans 'The Dark Knight' ?",
+      "categoryId": 2
+    },
+    {
+      "id": 23,
+      "questionLabel": "Quel rappeur français a sorti l'album 'Commando' ?",
+      "categoryId": 3
+    },
+    {
+      "id": 24,
+      "questionLabel": "Quel fromage est utilisé traditionnellement dans la pizza Margherita ?",
+      "categoryId": 4
+    },
+    {
+      "id": 25,
+      "questionLabel": "Quel pays a accueilli les Jeux Olympiques d'été 2016 ?",
+      "categoryId": 1
     }
   ],
   "answers": [
@@ -603,19 +628,27 @@
   "categories": [
     {
       "id": 1,
-      "name": "Sport"
+      "name": "Sport",
+      "description": "Questions sur le monde du sport",
+      "imageUrl": "https://cdn-icons-png.flaticon.com/512/857/857418.png"
     },
     {
       "id": 2,
-      "name": "Cinema"
+      "name": "Cinema",
+      "description": "Questions sur le cinéma et les films",
+      "imageUrl": "https://cdn-icons-png.flaticon.com/512/3163/3163478.png"
     },
     {
       "id": 3,
-      "name": "Musique"
+      "name": "Musique",
+      "description": "Questions sur la musique et les artistes",
+      "imageUrl": "https://cdn-icons-png.flaticon.com/512/727/727245.png"
     },
     {
       "id": 4,
-      "name": "Cuisine"
+      "name": "Cuisine",
+      "description": "Questions sur la gastronomie et la cuisine",
+      "imageUrl": "https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
     }
   ]
 }
