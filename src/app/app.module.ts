@@ -14,7 +14,7 @@ import { AnswerComponent } from './quiz/answer/answer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
-import { CategorieComponent } from './categorie/categorie.component';
+import { CategorieComponent } from './quiz/categorie/categorie.component';
 
 @NgModule({
   declarations: [
