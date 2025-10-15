@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,16 +40,48 @@ export class QuizService {
   }
 
   getQuizContent() {
+    this.quizContent = [];
     this.http.get('http://localhost:3000/questions').subscribe((questions: any) => {
-      for (const question of questions) {
-        this.http.get(`http://localhost:3000/answers?questionId=${question.id}`).subscribe((answers: any) => {
-          this.quizContent.push({
-              id: question.id,
-              question: question.questionLabel,
-              answers
-          });
-        });
+      if (!questions || questions.length === 0) {
+        console.warn('Aucune question trouvée');
+        return;
       }
+      
+      const answersRequests = questions.map((question: any) => 
+        this.http.get(`http://localhost:3000/answers?questionId=${question.id}`)
+      );
+      
+      forkJoin(answersRequests).subscribe((answersArray: any) => {
+        this.quizContent = questions.map((question: any, index: number) => ({
+          id: question.id,
+          question: question.questionLabel,
+          answers: answersArray[index]
+        }));
+        console.log('Questions chargées:', this.quizContent.length);
+      });
+    });
+  }
+
+  getQuizContentByCategory(categoryId: number) {
+    this.quizContent = [];
+    this.http.get(`http://localhost:3000/questions?categoryId=${categoryId}`).subscribe((questions: any) => {
+      if (!questions || questions.length === 0) {
+        console.warn(`Aucune question trouvée pour la catégorie ${categoryId}`);
+        return;
+      }
+      
+      const answersRequests = questions.map((question: any) => 
+        this.http.get(`http://localhost:3000/answers?questionId=${question.id}`)
+      );
+      
+      forkJoin(answersRequests).subscribe((answersArray: any) => {
+        this.quizContent = questions.map((question: any, index: number) => ({
+          id: question.id,
+          question: question.questionLabel,
+          answers: answersArray[index]
+        }));
+        console.log(`Questions de la catégorie ${categoryId} chargées:`, this.quizContent.length);
+      });
     });
   }
 
