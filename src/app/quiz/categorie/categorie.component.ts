@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Input, Output, EventEmitter } from '@angular/core';
 import { Category } from '../../model/category.model';
 
 
@@ -12,15 +13,18 @@ import { Category } from '../../model/category.model';
 })
 export class CategorieComponent implements OnInit {
   categories: Category[] = [];
-  searchText = '';
+  @Input() searchText: string = '';
+  @Output() searchApplied = new EventEmitter<string>();
   filter = '';
-  playerName: string | null = null;
+  @Input() playerName?: string | null = null;
   private baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.playerName = this.route.snapshot.paramMap.get('playerName');
+    if (!this.playerName) {
+      this.playerName = this.route.snapshot.paramMap.get('playerName');
+    }
     this.loadCategories();
   }
 
@@ -47,6 +51,7 @@ export class CategorieComponent implements OnInit {
 
   applyFilter() {
     this.filter = this.searchText;
+    this.searchApplied.emit(this.filter);
   }
 
   openCategory(cat: Category) {
