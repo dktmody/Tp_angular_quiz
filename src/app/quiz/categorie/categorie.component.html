@@ -1,0 +1,16 @@
+<div class="categories-page">
+	<h2>Catégories</h2>
+
+	<div class="controls">
+		<input type="text" [(ngModel)]="searchText" name="searchText" placeholder="Rechercher une catégorie...">
+		<button (click)="applyFilter()">Valider</button>
+		<button (click)="resetFilter()">Reset</button>
+	</div>
+
+	<div class="cards">
+		<div *ngIf="filteredCategories().length === 0" class="empty">Aucune catégorie trouvée.</div>
+		<div *ngFor="let cat of filteredCategories()" class="card" (click)="openCategory(cat)">
+			<h3>{{ cat.name }}</h3>
+		</div>
+	</div>
+</div>
