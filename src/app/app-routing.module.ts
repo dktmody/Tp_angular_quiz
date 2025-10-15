@@ -18,10 +18,10 @@ const routes: Routes = [
   },
   {
     path: 'quiz/:playerName',
-    component : QuizComponent
+    component : CategorieComponent
   },
   {
-    path: 'quiz/category/:categoryId',
+    path: 'quiz/:playerName/category/:categoryId',
     component: QuizComponent
   },
   {

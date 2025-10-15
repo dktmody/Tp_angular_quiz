@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Category } from '../../model/category.model';
 
 
@@ -8,16 +8,19 @@ import { Category } from '../../model/category.model';
   selector: 'app-categorie',
   standalone: false,
   templateUrl: './categorie.component.html',
-  styleUrl: './categorie.component.scss'
+  styleUrls: ['./categorie.component.scss']
 })
 export class CategorieComponent implements OnInit {
   categories: Category[] = [];
+  searchText = '';
   filter = '';
+  playerName: string | null = null;
   private baseUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.playerName = this.route.snapshot.paramMap.get('playerName');
     this.loadCategories();
   }
 
@@ -34,14 +37,23 @@ export class CategorieComponent implements OnInit {
   filteredCategories(): Category[] {
     const f = this.filter?.trim().toLowerCase();
     if (!f) return this.categories;
-    return this.categories.filter(c => c.categoryLabel.toLowerCase().includes(f));
+    return this.categories.filter(c => c.name.toLowerCase().includes(f));
   }
 
   resetFilter() {
     this.filter = '';
+    this.searchText = '';
+  }
+
+  applyFilter() {
+    this.filter = this.searchText;
   }
 
   openCategory(cat: Category) {
-    this.router.navigate(['/quiz', 'category', cat.id]);
+    if (this.playerName) {
+      this.router.navigate(['/quiz', this.playerName, 'category', cat.id]);
+    } else {
+      this.router.navigate(['/quiz', 'guest', 'category', cat.id]);
+    }
   }
 }

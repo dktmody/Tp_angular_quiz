@@ -602,20 +602,20 @@
   ],
   "categories": [
     {
-      "id": "1",
-      "categoryLabel": "Sport"
+      "id": 1,
+      "name": "Sport"
     },
-        {
-      "id": "2",
-      "categoryLabel": "Cinema"
+    {
+      "id": 2,
+      "name": "Cinema"
     },
-        {
-      "id": "3",
-      "categoryLabel": "Musique"
+    {
+      "id": 3,
+      "name": "Musique"
     },
-        {
-      "id": "4",
-      "categoryLabel": "Cuisine"
+    {
+      "id": 4,
+      "name": "Cuisine"
     }
   ]
 }
